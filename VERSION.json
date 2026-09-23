@@ -1,0 +1,9 @@
+{
+  "architectureRevision": "mvc2-r1",
+  "generatedFrom": {
+    "hub": "2.2.5",
+    "shopeefood": "2.0.10",
+    "grabfood": "2.0.1"
+  },
+  "policy": "Phase 1 structural refactor: preserve runtime behavior; new development goes through MVC2 boundaries."
+}

@@ -1,0 +1,55 @@
+name: Bug report
+description: Report a reproducible defect without sharing customer data.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove phone numbers, order exports, API keys, private IP details, and other sensitive runtime data before posting.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Windows Hub
+        - ShopeeFood Android agent
+        - GrabFood Chrome extension
+        - Shared contracts / CI
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Logs/screenshots with all customer and credential data removed.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed real phone numbers, order exports, API keys, credentials, and signing material.
+          required: true

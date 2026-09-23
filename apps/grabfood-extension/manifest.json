@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Ghi nhận đơn hàng",
+  "version": "2.0.1",
+  "description": "Ghi nhận đơn GrabFood tự động, lưu cục bộ 7 ngày, đồng bộ Hub và gửi telemetry đối soát SEEN/CAPTURED. Developer by Ngoan, Le Van.",
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "storage",
+    "downloads",
+    "alarms",
+    "tabs",
+    "scripting",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://merchant.grab.com/*",
+    "http://127.0.0.1:17891/*",
+    "http://localhost:17891/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "GHI NHẬN ĐƠN HÀNG",
+    "default_popup": "src/view/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://merchant.grab.com/*"
+      ],
+      "js": [
+        "src/controller/grab-monitor.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "web_accessible_resources": []
+}

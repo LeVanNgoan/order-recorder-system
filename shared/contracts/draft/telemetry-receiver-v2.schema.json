@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DRAFT Receiver correctness telemetry v2",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "phoneRole": {
+          "enum": [
+            "receiver",
+            "purchaser",
+            "unknown"
+          ]
+        },
+        "phoneSource": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

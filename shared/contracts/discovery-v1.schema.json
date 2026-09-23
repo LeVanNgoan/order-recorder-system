@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order Recorder Discovery v1",
+  "type": "object",
+  "required": [
+    "service",
+    "protocol",
+    "hub_id",
+    "version",
+    "lan_ip",
+    "port",
+    "url"
+  ],
+  "properties": {
+    "service": {
+      "const": "order-recorder-hub"
+    },
+    "protocol": {
+      "const": 1
+    },
+    "hub_id": {
+      "type": "string"
+    },
+    "app": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lan_ip": {
+      "type": "string"
+    },
+    "port": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

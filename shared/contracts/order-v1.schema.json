@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order Recorder Order v1",
+  "type": "object",
+  "required": [
+    "platform"
+  ],
+  "properties": {
+    "platform": {
+      "enum": [
+        "grab",
+        "grabfood",
+        "shopeefood",
+        "shopee",
+        "spf"
+      ]
+    },
+    "orderCode": {
+      "type": "string"
+    },
+    "shortOrderNumber": {
+      "type": "string"
+    },
+    "displayOrderId": {
+      "type": "string"
+    },
+    "fullOrderId": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "receiverPhone": {
+      "type": "string"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "receivedAt": {
+      "type": "string"
+    },
+    "recordedAt": {
+      "type": "string"
+    },
+    "sourceDevice": {
+      "type": "string"
+    },
+    "syncId": {
+      "type": "string"
+    },
+    "agentSessionId": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

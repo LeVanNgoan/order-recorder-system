@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you reference this portfolio project, please cite it as follows."
+title: "Order Recorder System"
+type: software
+authors:
+  - family-names: "Le"
+    given-names: "Van Ngoan"
+year: 2026
+version: "mvc2-r1"
+abstract: "Local-first multi-agent order capture, telemetry and reconciliation system using Python, Android Java, Chrome Extension Manifest V3, SQLite, and MVC2/layered architecture."

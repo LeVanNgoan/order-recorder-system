@@ -1,0 +1,67 @@
+name: Repository CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  public-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Public repository safety check
+        run: python scripts/public_repo_check.py
+
+  hub-and-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r apps/hub/requirements.txt
+      - name: Hub regression suite
+        env:
+          PYTHONPATH: apps/hub
+        run: |
+          cd apps/hub
+          for f in tests/regression/test_*.py; do
+            if [ "$(basename "$f")" = "test_discovery.py" ]; then
+              echo "Skipping live UDP discovery test in generic CI"
+              continue
+            fi
+            python "$f"
+          done
+          python tests/test_mvc2_adapters.py
+
+  grab-extension:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check apps/grabfood-extension/service-worker.js
+      - run: node --check apps/grabfood-extension/src/controller/service-worker-controller.js
+      - run: node --check apps/grabfood-extension/src/controller/grab-monitor.js
+      - run: node --check apps/grabfood-extension/src/view/popup/popup.js
+      - run: node --check apps/grabfood-extension/src/view/viewer/viewer.js
+      - run: node --check apps/grabfood-extension/src/service/xlsx-builder.js
+
+  spf-source-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python apps/shopeefood-agent/verify_source_v2.0.10.py

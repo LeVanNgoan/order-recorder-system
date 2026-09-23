@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order Recorder Telemetry v1",
+  "type": "object",
+  "required": [
+    "platform",
+    "eventType",
+    "eventAt"
+  ],
+  "properties": {
+    "platform": {
+      "enum": [
+        "grab",
+        "grabfood",
+        "shopeefood",
+        "shopee",
+        "spf"
+      ]
+    },
+    "eventType": {
+      "enum": [
+        "seen",
+        "risk",
+        "captured",
+        "miss",
+        "SEEN",
+        "RISK",
+        "CAPTURED",
+        "MISS"
+      ]
+    },
+    "orderCode": {
+      "type": "string"
+    },
+    "shortOrderNumber": {
+      "type": "string"
+    },
+    "agentSessionId": {
+      "type": "string"
+    },
+    "eventAt": {
+      "type": "string"
+    },
+    "sourceDevice": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "attemptCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

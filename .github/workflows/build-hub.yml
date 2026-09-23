@@ -1,0 +1,31 @@
+name: Build Windows Hub
+on:
+  workflow_dispatch:
+  push:
+    paths: ["apps/hub/**", "shared/contracts/**", ".github/workflows/build-hub.yml"]
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --upgrade pip
+      - run: pip install pyinstaller==6.15.0 openpyxl==3.1.5
+      - name: Regression tests
+        shell: pwsh
+        run: |
+          cd apps/hub
+          $env:PYTHONPATH=(Get-Location).Path
+          Get-ChildItem tests\regression\test_*.py | Where-Object { $_.Name -ne 'test_discovery.py' } | ForEach-Object { python $_.FullName; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+          python tests/test_mvc2_adapters.py
+      - name: Build
+        shell: pwsh
+        run: pyinstaller --clean --noconfirm --onefile --noconsole --name OrderRecorderHub --collect-all openpyxl --paths apps/hub --add-data "apps/hub/app/view/templates/dashboard.html;app/view/templates" apps/hub/hub.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OrderRecorderHub-Windows-v2.2.5-MVC2
+          path: dist/OrderRecorderHub.exe

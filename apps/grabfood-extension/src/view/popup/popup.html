@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ghi nhận đơn hàng</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <h1>Ghi nhận đơn hàng</h1>
+        <p id="connectionText"><span id="statusDot" class="status-dot off"></span><span id="statusText">Đang tắt</span></p>
+      </div>
+    </header>
+
+    <button id="toggleButton" class="button button-primary">Bật ghi nhận</button>
+
+    <section class="export-box">
+      <div class="box-title">
+        <span>Xuất dữ liệu theo ngày</span>
+        <small id="exportState"></small>
+      </div>
+      <select id="historyDate" aria-label="Chọn ngày cần xuất"></select>
+      <button id="exportSelectedButton" class="button button-export">Xuất Excel</button>
+    </section>
+
+    <button id="viewButton" class="button button-view">
+      <span>Xem đơn hôm nay</span>
+      <strong id="todayCount">0</strong>
+    </button>
+
+    <section class="hub-box">
+      <div class="hub-row">
+        <div>
+          <strong>Order Recorder Hub</strong>
+          <small id="hubStatus">Đang kiểm tra...</small>
+        </div>
+        <span id="hubPending" class="hub-count">0</span>
+      </div>
+      <div class="hub-actions">
+        <button id="hubSyncButton" class="button button-hub-secondary">Đồng bộ ngay</button>
+        <button id="hubOpenButton" class="button button-hub">Mở Hub</button>
+      </div>
+      <details class="data-tools">
+        <summary>Công cụ dữ liệu</summary>
+        <p>Dùng khi chuyển sang Hub mới hoặc đã xóa database Hub. Không tạo trùng đơn đã có.</p>
+        <button id="hubForceResyncButton" class="button button-resync">Đồng bộ lại dữ liệu 7 ngày</button>
+      </details>
+    </section>
+
+    <p id="notice" class="notice" role="status"></p>
+    <footer class="developer-footer">Developer by Ngoan, Le Van</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

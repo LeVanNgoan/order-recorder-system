@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ShopeeFood Recorder</string>
+    <string name="notification_service_label">Ghi nhận thông báo ShopeeFood</string>
+    <string name="accessibility_service_label">Ghi nhận SĐT người nhận ShopeeFood</string>
+    <string name="accessibility_service_description">Hỗ trợ ghi nhận SĐT Khách nhận đơn trên ShopeeFood. Sau thời gian âm báo, ứng dụng tạm khóa thao tác chạm để ghi nhận thật nhanh; tự mở khóa ngay khi hoàn tất hoặc khi failsafe kích hoạt. Không tự thực hiện cuộc gọi.</string>
+</resources>

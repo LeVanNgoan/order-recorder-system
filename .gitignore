@@ -1,0 +1,74 @@
+# --- Secrets / credentials ---
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+local.properties
+secrets.properties
+
+# --- Runtime customer/order data ---
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.log
+logs/
+backups/
+exports/
+runtime/
+hub_config.json
+orders.json
+
+# Excel/CSV exports are runtime data unless explicitly stored as fixtures.
+*.xlsx
+*.xls
+*.csv
+!tests/fixtures/**/*.csv
+!tests/fixtures/**/*.xlsx
+
+# --- Build artifacts ---
+dist/
+build/
+**/build/
+.gradle/
+**/.gradle/
+*.apk
+*.aab
+*.exe
+*.msi
+*.crx
+*.zip
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# --- Node / JS ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Temporary files ---
+*.tmp
+*.temp
+*.bak
+*.swp
+*~

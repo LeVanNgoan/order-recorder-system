@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đơn hàng hôm nay</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p>ORDER RECORDER</p>
+        <h1>Đơn hàng hôm nay</h1>
+      </div>
+      <button id="maskButton" class="mask-button">Hiện số đầy đủ</button>
+    </header>
+
+    <section class="toolbar">
+      <div class="search-box">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"></path>
+        </svg>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="Tìm theo số điện thoại hoặc mã đơn...">
+        <button id="clearSearch" class="clear-search" aria-label="Xóa nội dung tìm kiếm" title="Xóa">×</button>
+      </div>
+      <div class="result-count">
+        <strong id="count">0 đơn</strong>
+        <span id="platformSummary">Dữ liệu lưu cục bộ tối đa 7 ngày.</span>
+      </div>
+    </section>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã đơn hàng</th>
+            <th>SĐT</th>
+            <th>Thời gian nhận đơn</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <p id="empty" class="empty">Hôm nay chưa có dữ liệu.</p>
+    </div>
+    <p id="notice" class="notice"></p>
+    <footer class="developer-footer">Developer by Ngoan, Le Van</footer>
+  </main>
+  <script src="viewer.js"></script>
+</body>
+</html>

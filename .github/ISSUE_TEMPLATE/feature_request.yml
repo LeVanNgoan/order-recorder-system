@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a capability or maintainability improvement.
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Windows Hub
+        - ShopeeFood Android agent
+        - GrabFood Chrome extension
+        - Shared contracts / architecture
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the operational/engineering problem, not only the desired implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+  - type: textarea
+    id: risk
+    attributes:
+      label: Reliability / compatibility considerations
+      description: Could this affect capture timing, persistence, wire contracts, migrations, or privacy?
