@@ -17,7 +17,7 @@ jobs:
       - run: node --check apps/grabfood-extension/src/controller/service-worker-controller.js
       - run: node --check apps/grabfood-extension/src/controller/grab-monitor.js
       - run: cd apps/grabfood-extension && zip -qr ../../GrabOrderRecorder-v2.0.1-MVC2.zip .
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: GrabOrderRecorder-v2.0.1-MVC2
           path: GrabOrderRecorder-v2.0.1-MVC2.zip

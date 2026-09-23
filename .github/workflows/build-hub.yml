@@ -25,7 +25,7 @@ jobs:
       - name: Build
         shell: pwsh
         run: pyinstaller --clean --noconfirm --onefile --noconsole --name OrderRecorderHub --collect-all openpyxl --paths apps/hub --add-data "apps/hub/app/view/templates/dashboard.html;app/view/templates" apps/hub/hub.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: OrderRecorderHub-Windows-v2.2.5-MVC2
           path: dist/OrderRecorderHub.exe
